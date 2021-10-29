@@ -14,7 +14,7 @@
 
 ## About ESRC Heart SDK
 
-Through our **ESRC Heart SDK** for iOS, you can efficiently integrate real-time recognition of facial expression, heart response and emotions into your mobile app. This and other pages in the Getting Started provide the ESRC Heart SDK’s structure and installation steps, then goes through the preliminary steps of implementing the ESRC Heart SDK in your own project.
+Through our **ESRC Heart SDK** for iOS, you can efficiently integrate real-time recognition of heart response and emotions into your mobile app. This and other pages in the Getting Started provide the ESRC Heart SDK’s structure and installation steps, then goes through the preliminary steps of implementing the ESRC Heart SDK in your own project.
 
 ### Requirements
 
@@ -65,7 +65,7 @@ import ESRC_Heart_SDK_iOS
 
 ## Making your first recognition
 
-The ESRC SDK simplifies vision features into an effortless and straightforward process. To recognize your heart response, do the following steps:
+The ESRC Heart SDK simplifies vision features into an effortless and straightforward process. To recognize your heart response, do the following steps:
 
 This page provides a step-by-step guide that demonstrates how to build and configure an in-app bio-analysis using ESRC Heart SDK. License key can be received by requesting by the email: **esrc@esrc.co.kr**.
 
@@ -86,7 +86,7 @@ ESRC.initWithApplicationId(appId: APP_ID, licenseHandler:  ESRCLicenseHandler() 
 })
 ```
 
-> Note: The `ESRC.initWithApplicationId()` method must be called once across your iOS app. It is recommended to initialize the ESRC SDK in the `viewDidAppear()` method of the Application instance.
+> Note: The `ESRC.initWithApplicationId()` method must be called once across your iOS app. It is recommended to initialize the ESRC Heart SDK in the `viewDidAppear()` method of the Application instance.
 
 ### Step 2: Start the ESRC Heart SDK
 

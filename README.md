@@ -28,6 +28,7 @@ The minimum requirements to use our iOS sample are:
 
 |Function|Description|
 |---|---|
+|Measurement Environment Analysis| Analyze measurement environment including brightness. |
 |Face Detection| Detect a single face using a front camera on mobile. |
 |Heart Rate Estimation| Estimate heart rate from facial color variations and head move-ments caused by heartbeat using Remote Photoplethysmography and Ballistocardiography. |
 |Heart Rate Variability Analysis| Extract 19 variables of heart rate variability reflecting autonomic nervous system activity from the accumulated heart rates. |
@@ -90,24 +91,31 @@ ESRC.initWithApplicationId(appId: APP_ID, licenseHandler:  ESRCLicenseHandler() 
 
 ### Step 2: Start the ESRC Heart SDK
 
-Start the ESRC Heart SDK to recognize your heart response. To the `start()` method, pass the `ESRCHandler` to handle the results. You should implement the callback method of `ESRCHandler` interface. So, you can receive the results of face, heart rate, and heart rate variability. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Heart-iOS)**.
+Start the ESRC Heart SDK to recognize your heart response. To the `start()` method, pass the `ESRCProperty` to select analysis modules and the `ESRCHandler` to handle the results. You should implement the callback method of `ESRCHandler` interface. So, you can receive the results of face, heart rate, and heart rate variability. Please refer to **[sample app](https://github.com/esrc-official/ESRC-Heart-iOS)**.
 
 ```swift
-ESRC.start(handler: ESRCHandler() {
-    func onDetectedFace(face: ESRCFace) {
-        // The face is detected.
-        // Through the “face” parameter of the onDetectedFace() callback method,
-        // you can get the location of the face from the result object
-        // that ESRC SDK has passed to the onDetectedFace().
-        …
-    }
+ESRC.start(
+    property: ESRCProperty(
+        enableMeasureEnv: true,  // Whether analyze measurement environment or not.
+        enableFace: true,  // Whether detect face or not.
+        enableRemoteHR: true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
+        enableHRV: true),  // Whether analyze HRV not not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
+    handler: ESRCHandler() {
+        func onDetectedFace(face: ESRCFace) {
+            // The face is detected.
+            // Through the “face” parameter of the onDetectedFace() callback method,
+            // you can get the location of the face from the result object
+            // that ESRC SDK has passed to the onDetectedFace().
+            …
+        }
     
-    // Please implement other callback method of ESRCHandler interface.
-    func onNotDetectedFace() { … }
-    func didChangedProgressRatioOnRemoteHR(progressRatio: Double) { … }
-    func onEstimatedRemoteHR(remoteHR: ESRCRemoteHR) { … }
-    func didChangedProgressRatioOnHRV(progressRatio: Double) { … }
-    func onAnalyzedHRV(hrv: ESRCHRV) { … }
+        // Please implement other callback method of ESRCHandler interface.
+        func onNotDetectedFace() { … }
+        func onAnalyzedMeasureEnv(measureEnv: ESRCMeasureEnv) { … }
+        func didChangedProgressRatioOnRemoteHR(progressRatio: Double) { … }
+        func onEstimatedRemoteHR(remoteHR: ESRCRemoteHR) { … }
+        func didChangedProgressRatioOnHRV(progressRatio: Double) { … }
+        func onAnalyzedHRV(hrv: ESRCHRV) { … }
 });
 ```
 

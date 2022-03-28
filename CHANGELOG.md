@@ -11,3 +11,7 @@
  - Improve validation of license.
  - Disable bitcode.
  - Change window size of HRV analysis as 60s.
+
+### 2.4.4 (March 28, 2022)
+ - Add engagement recognition.
+ - Improve valiation of license.

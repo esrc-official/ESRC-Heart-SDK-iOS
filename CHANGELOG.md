@@ -15,3 +15,6 @@
 ### 2.4.4 (March 28, 2022)
  - Add engagement recognition.
  - Improve valiation of license.
+
+### 2.4.5 (April 07, 2022)
+ - Improve alrogirhm of engagement recognition.

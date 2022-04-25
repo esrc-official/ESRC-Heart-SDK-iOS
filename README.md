@@ -32,6 +32,7 @@ The minimum requirements to use our iOS sample are:
 |Face Detection| Detect a single face using a front camera on mobile. |
 |Heart Rate Estimation| Estimate heart rate from facial color variations and head move-ments caused by heartbeat using Remote Photoplethysmography and Ballistocardiography. |
 |Heart Rate Variability Analysis| Extract 19 variables of heart rate variability reflecting autonomic nervous system activity from the accumulated heart rates. |
+|Engagement Recognition| Recognize engagement level from balance of autonomic nervous system by heart rate variability analysis. |
 
 ### Try the sample app
 
@@ -110,12 +111,12 @@ ESRC.start(
         }
     
         // Please implement other callback method of ESRCHandler interface.
-        func onNotDetectedFace() { … }
         func onAnalyzedMeasureEnv(measureEnv: ESRCMeasureEnv) { … }
         func didChangedProgressRatioOnRemoteHR(progressRatio: Double) { … }
         func onEstimatedRemoteHR(remoteHR: ESRCRemoteHR) { … }
         func didChangedProgressRatioOnHRV(progressRatio: Double) { … }
         func onAnalyzedHRV(hrv: ESRCHRV) { … }
+        func onRecognizedEngagement(engagement: ESRCEngagement) { … }
 });
 ```
 
@@ -134,4 +135,3 @@ When your app is not use the camera or destroyed, stop the ESRC Heart SDK.
 ```swift
 ESRC.stop()
 ```
-

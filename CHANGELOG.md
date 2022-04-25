@@ -18,3 +18,8 @@
 
 ### 2.4.5 (April 07, 2022)
  - Improve alrogirhm of engagement recognition.
+
+### 2.4.6 (April 21, 2022)
+ - Change some ESRCType class constant to class enum (engagement).
+ - Remove onNotDetectedFace callback method -> Add isDetect parameter in ESRCFace class.
+ - Add identification parameter in all ERCType class.

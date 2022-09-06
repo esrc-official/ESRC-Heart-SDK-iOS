@@ -29,3 +29,6 @@
  - Add PPICount variable in ESRCType.HRV class.
  - Improve procedure for validation of license key.
  - Analyze HRV during 180 seconds.
+ 
+### 2.5.3 (September 06, 2022)
+ - Improve RPPG and HRV algorithm.

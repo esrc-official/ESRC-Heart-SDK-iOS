@@ -35,3 +35,6 @@
 
 ### 2.5.4 (September 28, 2022)
  - Add exception handling when wrong image is input.
+
+### 2.5.8 (November 04, 2022)
+ - Improve procedure for validation of license key.

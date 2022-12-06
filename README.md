@@ -33,6 +33,7 @@ The minimum requirements to use our iOS sample are:
 |Heart Rate Estimation| Estimate heart rate from facial color variations and head move-ments caused by heartbeat using Remote Photoplethysmography and Ballistocardiography. |
 |Heart Rate Variability Analysis| Extract 19 variables of heart rate variability reflecting autonomic nervous system activity from the accumulated heart rates. |
 |Engagement Recognition| Recognize engagement level from balance of autonomic nervous system by heart rate variability analysis. |
+|Mental Disorder Recognition| Recognize levels of anxiety, depress, insomnia and stress from balance of autonomic nervous system by heart rate variability analysis. |
 
 ### Try the sample app
 
@@ -100,7 +101,9 @@ ESRC.start(
         enableMeasureEnv: true,  // Whether analyze measurement environment or not.
         enableFace: true,  // Whether detect face or not.
         enableRemoteHR: true,  // Whether estimate remote hr or not. If enableFace is false, it is also automatically set to false.
-        enableHRV: true),  // Whether analyze HRV not not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
+        enableHRV: true,  // Whether analyze HRV not not. If enableFace or enableRemoteHR is false, it is also automatically set to false.
+        enableEngagement: true,  // Whether recognize engagement or not. If enableHRV is false, it is also automatically set to false.
+        enableMentalDisorder: true)  // Whether recognize mental disorder or not. It enableHRV is false, it is also automatically set to false.
     handler: ESRCHandler() {
         func onDetectedFace(face: ESRCFace) {
             // The face is detected.
@@ -117,6 +120,7 @@ ESRC.start(
         func didChangedProgressRatioOnHRV(progressRatio: Double) { … }
         func onAnalyzedHRV(hrv: ESRCHRV) { … }
         func onRecognizedEngagement(engagement: ESRCEngagement) { … }
+        func onRecognizedMentalDisorder(mentalDisorder: ESRCMentalDisorder) { … }
 });
 ```
 

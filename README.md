@@ -120,7 +120,6 @@ ESRC.start(
         func didChangedProgressRatioOnHRV(progressRatio: Double) { … }
         func onAnalyzedHRV(hrv: ESRCHRV) { … }
         func onRecognizedEngagement(engagement: ESRCEngagement) { … }
-        func onRecognizedMentalDisorder(mentalDisorder: ESRCMentalDisorder) { … }
 });
 ```
 
